@@ -5,21 +5,14 @@
 */
 
 // global variables
-var array1 = []; // original unsorted array
-var sortedArray1 = []; // mySort
-var sortedArray2 = []; // bubbleSort
-var sortedArray3 = []; // selectSort
-
+var array1 = [];
+// setup function
 function setup(){
-  for (var i = 0; i < 10; i++){
-    array1[i] = random(10);
-	sortedArray1[i] = sortedArray2[i] = sortedArray3[i] = array1[i];
+  for (var i = 0; i < 100; i++){
+    array1[i] = random(100);
   }
-  mySort(sortedArray1);
-  bubbleSort(sortedArray2);
-  selectSort(sortedArray3);
 }
-
+// mySort function
 function mySort(array){
   for (var i = 0; i < array.length-1; i++){
 	// swaps array value if the first value is greater than the next value
@@ -37,6 +30,7 @@ function mySort(array){
   }
 }
 
+// bubbleSort function
 function bubbleSort(array){
   for (var i = array.length-1; i >= 1; i--){
     /* for loop that checks if each value in the array is in order
@@ -50,20 +44,35 @@ function bubbleSort(array){
     }
   }
 }
-
+// selectSort function
 function selectSort(array){
   // for loop that sorts values in array
   for (var i = 0; i < array.length-1; i++){
-    var SmallSub = i; // variable holding i value
+    var small = i; // variable holding i value
     // for loop that compares the values in the array
     for (var j = i+1; j < array.length-1; i++){
-      // if the value in the array is smaller than the previous value, SmallSub is assigned j
-      if (array[j] < array[SmallSub]){
-        SmallSub = j
+      // if the value in the array is smaller than the previous value, small is assigned j
+      if (array[j] < array[small]){
+        small = j
       }
     }
     var temp = array[i]; // temp variable holding array[i]
-    array[i] = array[SmallSub]; // array[i] is assigned array[SmallSub]
-    array[SmallSub] = temp; // array[SmallSub] is assigned temp
+    array[i] = array[small]; // array[i] is assigned array[small]
+    array[small] = temp; // array[small] is assigned temp
     }
+}
+// insertSort function
+function insertSort(array){
+  var temp;
+  // for loop that sorts values in array
+  for (var  i = 1; i < array.length; i++){
+    // for loop that swaps values if they are not in order
+    for (var  j = i ; j > 0 ; j--){
+      if(array[j] < array[j-1]){
+            temp = array[j];
+            array[j] = array[j-1];
+            array[j-1] = temp;
+          }
+      }
+   }
 }
