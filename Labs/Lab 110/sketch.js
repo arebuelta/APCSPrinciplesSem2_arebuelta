@@ -6,18 +6,13 @@
 
 // global variables
 var array1 = [];
+var array = [];
 var swaps = [];
 var milliseconds = [];
 var compares = [];
 // setup function
 function setup(){
-  for (var i = 0; i < 100; i++){
-    array1[i] = random(100);
-    if (i < 4){
-      swaps[i] = 0;
-      compares[i] = 0;
-    }
-  }
+  loadNumbers(array1);
 }
 // mySort function
 function mySort(array){
@@ -90,4 +85,14 @@ function insertSort(array){
           }
       }
    }
+}
+// loadNumbers function
+function loadNumbers(array){
+  for (var i = 0; i < 100; i++){
+    array[i] = random(100);
+    if (i < 4){
+      swaps[i] = 0;
+      compares[i] = 0;
+    }
+  }
 }
