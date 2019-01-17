@@ -6,13 +6,31 @@
 
 // global variables
 var array1 = [];
-var array = [];
+var arr = [];
 var swaps = [];
 var milliseconds = [];
 var compares = [];
 // setup function
 function setup(){
+  var cnv = createCanvas(800, 800);
+  cnv.position((windowWidth-width)/2, 30);
+  background(0);
   loadNumbers(array1);
+  for (var i = 0; i < array1.length; i++){
+	  arr[i] = array1[i];
+  }
+  milliseconds[0] = millis();
+  mySort(array1);
+}
+// draw function
+function draw(){
+	background(0);
+	textSize(20);
+	fill(255);
+	text(milliseconds[1]-milliseconds[0], 200, 250); // mySort time
+	text(milliseconds[2]-milliseconds[1], 200, 275); // bubbleSort time
+	text(milliseconds[3]-milliseconds[2], 200, 300); // insertSort time
+	text(milliseconds[4]-milliseconds[3], 200, 325); // selectSort time
 }
 // mySort function
 function mySort(array){
@@ -32,6 +50,9 @@ function mySort(array){
 		  sort(array1); // calls sort function
 	  }
   }
+  milliseconds[1] = millis();
+  array1 = arr;
+  bubbleSort(array1);
 }
 
 // bubbleSort function
@@ -49,6 +70,9 @@ function bubbleSort(array){
       }
     }
   }
+  milliseconds[2] = millis();
+  array1 = arr;
+  insertSort(array1);
 }
 // selectSort function
 function selectSort(array){
@@ -56,7 +80,7 @@ function selectSort(array){
   for (var i = 0; i < array.length-1; i++){
     var small = i; // variable holding i value
     // for loop that compares the values in the array
-    for (var j = i+1; j < array.length-1; i++){
+    for (var j = i+1; j < array.length; j++){
       compares[2] = compares[2]+1;
       // if the value in the array is smaller than the previous value, small is assigned j
       if (array[j] < array[small]){
@@ -68,7 +92,9 @@ function selectSort(array){
     array[small] = temp; // array[small] is assigned temp
     swaps[2] = swaps[2]+1;
     }
+	milliseconds[4] = millis();
 }
+
 // insertSort function
 function insertSort(array){
   var temp;
@@ -85,6 +111,9 @@ function insertSort(array){
           }
       }
    }
+   milliseconds[3] = millis();
+   array1 = arr;
+   selectSort(array1);
 }
 // loadNumbers function
 function loadNumbers(array){
