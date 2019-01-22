@@ -1,6 +1,6 @@
 /*
 ** Anthony Rebuelta
-** Lab 110: Sorting
+** Lab 114: Sorting
 ** 14 January 2019
 */
 
@@ -27,7 +27,7 @@ function draw(){
 	text("Sorting Metrics", 250, 75);
 	textSize(25);
 	text(milliseconds[1]-milliseconds[0], 175, 220); // mySort time
-	text(milliseconds[2]-milliseconds[1], 175, 260); // bubbleSort time 
+	text(milliseconds[2]-milliseconds[1], 175, 260); // bubbleSort time
 	text(milliseconds[3]-milliseconds[2], 175, 300); // insertSort time
 	text(milliseconds[4]-milliseconds[3], 175, 340); // selectSort time
 	text("mySort:", 20, 220)
