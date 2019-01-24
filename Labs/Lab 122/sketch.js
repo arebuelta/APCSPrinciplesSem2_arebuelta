@@ -23,14 +23,12 @@ function setup(){
   bubbleSort(females.countrydata);
   selectSort(countries.countrydata);
   insertSort(males.countrydata);
+  displayLog();
 }
 
 // draw function
 function draw(){
   background(0);
-  textSize(15);
-  fill(255);
-  text("Countries with most to least females", 40, 50);
 }
 
 function bubbleSort(array){
@@ -78,4 +76,20 @@ function insertSort(array){
           }
       }
    }
+}
+function displayLog(){
+  console.log("Countries with most to least females:");
+  for (var i = 0; i < females.countrydata.length; i++){
+    console.log(females.countrydata[i].country);
+  }
+  console.log(" ");
+  console.log("Countries with the most to least males:");
+  for (var i = 0; i < males.countrydata.length; i++){
+    console.log(males.countrydata[i].country);
+  }
+  console.log(" ");
+  console.log("Countries: ")
+  for(var i = 0; i < countries.countrydata.length; i++){
+    console.log(countries.countrydata[i].country);
+  }
 }
