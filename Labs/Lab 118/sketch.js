@@ -6,10 +6,10 @@
 
 // global variables
 var data;
-var reverseSorted1;
-var reverseSorted2;
-var reverseSorted3;
-var sortType;
+var reverseSorted1; // variable that notes whether the first array is sorted
+var reverseSorted2; // variable that notes whether the second array is sorted
+var reverseSorted3; // variable that notes wheter the third array is sorted
+var sortType; // variable that determines 
 var overWord1;
 var overWord2;
 var overWord3;
@@ -23,7 +23,8 @@ function setup(){
   cnv.position((windowWidth-width)/2, 30);
   background(0);
   reverseSorted1 = false;
-  console.log(overWord1)
+  reverseSorted2 = false;
+  reverseSorted3 = false;
 }
 // draw function
 function draw(){
@@ -34,22 +35,22 @@ function draw(){
   text("Urban Population", 250, 30);
   text("Murder Rate", 550, 30);
   display();
-  if (mouseX > 60 && mouseX < 60+40 &&
-    mouseY > 15 && mouseY < 15+15) {
+  if (mouseX > 75 && mouseX < 75+70 &&
+    mouseY > 5 && mouseY < 5+30) {
       overWord1 = true;
   }
   else{
     overWord1 = false;
   }
-  if (mouseX > 250 && mouseX < 250+200 &&
-    mouseY > 15 && mouseY < 15+15) {
+  if (mouseX > 250 && mouseX < 250+240 &&
+    mouseY > 5 && mouseY < 5+30) {
      overWord2 = true;
     }
   else {
     overWord2 = false;
   }
-  if (mouseX > 550 && mouseX < 550+200 &&
-    mouseY > 15 && mouseY < 15+15) {
+  if (mouseX > 550 && mouseX < 550+170 &&
+    mouseY > 5 && mouseY < 5+30) {
       overWord3 = true;
     }
   else {
@@ -64,29 +65,29 @@ function selectSort(){
     // for loop that compares the values in the array
     for (var j = i+1; j < data.crime.length; j++){
       // if the value in the array is smaller than the previous value, small is assigned j
-      if (sortType = "State"){
+      if (sortType === "State"){
       if (data.crime[j].state < data.crime[small].state){
-        small = j
+        small = j;
       }
       reverseSorted1 = false;
     }
-    else if (sortType = "Population"){
+    else if (sortType === "Population"){
       if (data.crime[j].UrbanPop < data.crime[small].UrbanPop){
         small = j
       }
       reverseSorted2 = false;
       }
-    else if (sortType = "Murder"){
+    else if (sortType === "Murder"){
       if (data.crime[j].Murder < data.crime[small].Murder){
         small = j
       }
       reverseSorted3 = false;
       }
     }
-  }
     var temp = data.crime[i]; // temp variable holding array[i]
     data.crime[i] = data.crime[small]; // array[i] is assigned array[small]
     data.crime[small] = temp; // array[small] is assigned temp
+  }
 }
 
 function reverseSort(){
@@ -96,21 +97,21 @@ function reverseSort(){
     // for loop that compares the values in the array
     for (var j = i+1; j < data.crime.length; j++){
       // if the value in the array is smaller than the previous value, small is assigned j
-      if (sortType = "State"){
+      if (sortType === "State"){
       if (data.crime[j].state > data.crime[small].state){
-        small = j
+        small = j;
       }
       reverseSorted1 = true;
     }
-    else if (sortType = "Population"){
+    else if (sortType === "Population"){
       if (data.crime[j].UrbanPop > data.crime[small].UrbanPop){
-        small = j
+        small = j;
       }
       reverseSorted2 = true;
       }
-    else if (sortType = "Murder"){
+    else if (sortType === "Murder"){
       if (data.crime[j].Murder > data.crime[small].Murder){
-        small = j
+        small = j;
       }
       reverseSorted3 = true;
       }
