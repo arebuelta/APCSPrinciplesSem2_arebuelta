@@ -4,14 +4,14 @@
 ** Aug 21, 2018
 */
 
-function Ball(loc, rad, col, id){
+function Ball(loc, rad, col, id, acc){
   // Instance variables
   this.loc = loc;
   this.vel = createVector(random(-1.0, 1.0),  random(-1.0, 1.0));
   this.rad = rad;
-  this.acc = createVector(0, 0.01);
   this.id = id;
-  // this.col = col;
+  this.acc = acc;
+  this.col = col;
   // This function calls other functions
   this.run = function (){
     this.checkEdges();
@@ -33,12 +33,7 @@ function Ball(loc, rad, col, id){
   }
   // render() draws the ball at the new location
   this.render = function(){
-    if (id%2 === 0 ){
-      stroke(255, 0, 0);
-    }
-    else{
-      stroke(155, 155, 0);
-    }
+    stroke(col);
     if (id < Balls.length-1){
       line(this.loc.x, this.loc.y, Balls[id+1].loc.x, Balls[id+1].loc.y, 125);
     }
@@ -47,7 +42,7 @@ function Ball(loc, rad, col, id){
     }
     fill(255);
     noStroke();
-    ellipse(this.loc.x, this.loc.y, rad, rad);
+    ellipse(this.loc.x, this.loc.y, 0, 0);
 
   }
 }
