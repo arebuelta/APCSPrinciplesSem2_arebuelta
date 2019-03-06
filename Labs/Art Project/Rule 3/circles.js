@@ -4,10 +4,12 @@
 ** March 3, 2019
 */
 
-function Ball(x, y){
+function Ball(x, y, id, col){
   // Instance variables
   this.x = x;
   this.y = y;
+  this.id = id;
+  this.col = col;
   // This function calls other functions
   this.run = function (){
     this.checkEdges();
@@ -23,10 +25,13 @@ function Ball(x, y){
   }
   // render() draws the ball at the new location
   this.render = function(){
-    noFill();
-    strokeWeight(2);
-    stroke(r%255);
-    ellipse(this.x, this.y, 50, 50);
-    pop();
+  noFill();
+  push();
+  translate(width / 2, height / 2);
+  strokeWeight(2);
+  stroke(col);
+  rotate(radians(frameCount));
+  ellipse(this.x, this.y, 50, 50);
+  pop();
   }
 }
