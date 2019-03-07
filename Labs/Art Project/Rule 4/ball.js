@@ -27,22 +27,17 @@ function Ball(locX, locY, rad, col, id){
   }
   //checkEdges() reverses speed when the ball touches an edge
   this.checkEdges = function(){
-    if (id === 1){
-      if(this.locX < 0) this.speedX = -this.speedX;
-      if(this.locX > width) this.speedX = -this.speedX;
-      if(this.locY < 0) this.speedY = -this.speedY;
-      if(this.locY > 200) this.speedY = -this.speedY;
-    }
-    else if (id === 2){
-      if(this.locX < 0) this.speedX = -this.speedX;
-      if(this.locX > width) this.speedX = -this.speedX;
-      if(this.locY < 200) this.speedY = -this.speedY;
-      if(this.locY > 400) this.speedY = -this.speedY;
-    }
+    if(this.locX < 0) this.speedX = -this.speedX;
+    if(this.locX > width) this.speedX = -this.speedX;
+    if(this.locY < 0) this.speedY = -this.speedY;
+    if(this.locY > height) this.speedY = -this.speedY;
   }
   // render() draws the ball at the new location
   this.render = function(){
-    fill(this.col);
-    ellipse(this.locX, this.locY, rad, rad);
+    stroke(this.col);
+    if (id < balls.length-1){
+      line(this.locX, this.locY, balls[id+1].locX, balls[id+1].locY);
+
+    }
   }
 }

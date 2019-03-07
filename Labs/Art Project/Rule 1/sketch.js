@@ -20,8 +20,6 @@ function loadBalls(numBalls){
   for (i = 0; i < numBalls; i++){
       var loc = createVector(400, 400);
       var r = 10;
-      var negative = Math.pow(-1, i)
-      var negative2 = Math.pow(-1, i+1)
       if (i < (numBalls/4)){
         var acc = createVector(-.1, .1);
       }
