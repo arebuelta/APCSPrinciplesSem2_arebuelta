@@ -1,309 +1,309 @@
 {
-  "2019usdata":[
+  "usPopulationData":[
     {
       "state": "Alabama",
       "population": 4888949,
-      "%growth": 0.29,
+      "growth": 0.29,
       "%ofUS": 1.49
     },
     {
       "state": "Alaska",
       "population": 738068,
-      "%growth": -0.23,
+      "growth": -0.23,
       "%ofUS": 0.22
     },
     {
       "state": "Arizona",
       "population": 7123898,
-      "%growth": 1.53,
+      "growth": 1.53,
       "%ofUS": 2.17
     },
     {
       "state": "Arkansas",
       "population": 3020327,
-      "%growth": 0.53,
+      "growth": 0.53,
       "%ofUS": 0.92
     },
     {
       "state": "California",
       "population": 39776830,
-      "%growth": 0.61,
+      "growth": 0.61,
       "%ofUS": 12.13
     },
     {
       "state": "Colorado",
       "population": 5684203,
-      "%growth": 1.37,
+      "growth": 1.37,
       "%ofUS": 1.74
     },
     {
       "state": "Connecticut",
       "population": 3588683,
-      "%growth": 0.01,
+      "growth": 0.01,
       "%ofUS": 1.09
     },
     {
       "state": "Delaware",
       "population": 971180,
-      "%growth": 0.96,
+      "growth": 0.96,
       "%ofUS": 0.30
     },
     {
       "state": "District of Columbia",
       "population": 703608,
-      "%growth": 1.39,
+      "growth": 1.39,
       "%ofUS": 0.21
     },
     {
       "state": "Florida",
       "population": 21312211,
-      "%growth": 1.56,
+      "growth": 1.56,
       "%ofUS": 6.50
     },
     {
       "state": "Georgia",
       "population": 10535138,
-      "%growth": 1.11,
+      "growth": 1.11,
       "%ofUS": 3.21
     },
     {
       "state": "Hawaii",
       "population": 1426393,
-      "%growth": -0.08,
+      "growth": -0.08,
       "%ofUS": 0.43
     },
     {
       "state": "Idaho",
       "population": 1753860,
-      "%growth": 2.15,
+      "growth": 2.15,
       "%ofUS": 0.53
     },
     {
       "state": "Illinois",
       "population": 12768320,
-      "%growth": -0.26,
+      "growth": -0.26,
       "%ofUS": 3.89
     },
     {
       "state": "Indiana",
       "population": 6699629,
-      "%growth": 0.49,
+      "growth": 0.49,
       "%ofUS": 2.04
     },
     {
       "state": "Iowa",
       "population": 3160553,
-      "%growth": 0.47,
+      "growth": 0.47,
       "%ofUS": 0.96
     },
     {
       "state": "Kansas",
       "population": 2918515,
-      "%growth": 0.19,
+      "growth": 0.19,
       "%ofUS": 0.89
     },
     {
       "state": "Kentucky",
       "population": 4472265,
-      "%growth": 0.41,
+      "growth": 0.41,
       "%ofUS": 1.36
     },
     {
       "state": "Louisiana",
       "population": 4682509,
-      "%growth": -0.04,
+      "growth": -0.04,
       "%ofUS": 1.43
     },
     {
       "state": "Maine",
       "population": 1341582,
-      "%growth": 0.42,
+      "growth": 0.42,
       "%ofUS": 0.41
     },
     {
       "state": "Maryland",
       "population": 6079602,
-      "%growth": 0.45,
+      "growth": 0.45,
       "%ofUS": 1.85
     },
     {
       "state": "Massachusetts",
       "population": 6895917,
-      "%growth": 0.53,
+      "growth": 0.53,
       "%ofUS": 2.10
     },
     {
       "state": "Michigan",
       "population": 9991177,
-      "%growth": 0.29,
+      "growth": 0.29,
       "%ofUS": 3.05
     },
     {
       "state": "Minnesota",
       "population": 5628162,
-      "%growth": 0.92,
+      "growth": 0.92,
       "%ofUS": 1.72
     },
     {
       "state": "Mississippi",
       "population": 2982785,
-      "%growth": -0.04,
+      "growth": -0.04,
       "%ofUS": 0.91
     },
     {
       "state": "Missouri",
       "population": 6135888,
-      "%growth": 0.37,
+      "growth": 0.37,
       "%ofUS": 1.87
     },
     {
       "state": "Montana",
       "population": 1062330,
-      "%growth": 1.13,
+      "growth": 1.13,
       "%ofUS": 0.32
     },
     {
       "state": "Nebraska",
       "population": 1932549,
-      "%growth": 0.65,
+      "growth": 0.65,
       "%ofUS": 0.59
     },
     {
       "state": "Nevada",
       "population": 3056824,
-      "%growth": 1.96,
+      "growth": 1.96,
       "%ofUS": 0.93
     },
     {
       "state": "New Hampshire",
       "population": 1350575,
-      "%growth": 0.58,
+      "growth": 0.58,
       "%ofUS": 0.41
     },
     {
       "state": "New Jersey",
       "population": 9032872,
-      "%growth": 0.30,
+      "growth": 0.30,
       "%ofUS": 2.75
     },
     {
       "state": "New Mexico",
       "population": 2090708,
-      "%growth": 0.13,
+      "growth": 0.13,
       "%ofUS": 0.64
     },
     {
       "state": "New York",
       "population": 19862512,
-      "%growth": 0.07,
+      "growth": 0.07,
       "%ofUS": 6.06
     },
     {
       "state": "North Carolina",
       "population": 10390149,
-      "%growth": 1.14,
+      "growth": 1.14,
       "%ofUS": 3.17
     },
     {
       "state": "North Dakota",
       "population": 755238,
-      "%growth": -0.02,
+      "growth": -0.02,
       "%ofUS": 0.23
     },
     {
       "state": "Ohio",
       "population": 11694664,
-      "%growth": 0.31,
+      "growth": 0.31,
       "%ofUS": 3.57
     },
     {
       "state": "Oklahoma",
       "population": 3940521,
-      "%growth": 0.25,
+      "growth": 0.25,
       "%ofUS": 1.20
     },
     {
       "state": "Oregon",
       "population": 4199563,
-      "%growth": 1.37,
+      "growth": 1.37,
       "%ofUS": 1.28
     },
     {
       "state": "Pennsylvania",
       "population": 12823989,
-      "%growth": 0.14,
+      "growth": 0.14,
       "%ofUS": 3.91
     },
     {
       "state": "Rhode Island",
       "population": 1061712,
-      "%growth": 0.20,
+      "growth": 0.20,
       "%ofUS": 0.32
     },
     {
       "state": "South Carolina",
       "population": 5088916,
-      "%growth": 1.28,
+      "growth": 1.28,
       "%ofUS": 1.55
     },
     {
       "state": "South Dakota",
       "population": 877790,
-      "%growth": 0.93,
+      "growth": 0.93,
       "%ofUS": 0.27
     },
     {
       "state": "Tennessee",
       "population": 6782564,
-      "%growth": 0.99,
+      "growth": 0.99,
       "%ofUS": 2.07
     },
     {
       "state": "Texas",
       "population": 28704330,
-      "%growth": 1.41,
+      "growth": 1.41,
       "%ofUS": 8.75
     },
     {
       "state": "Utah",
       "population": 3159345,
-      "%growth": 1.85,
+      "growth": 1.85,
       "%ofUS": 0.96
     },
     {
       "state": "Vermont",
       "population": 623960,
-      "%growth": 0.05,
+      "growth": 0.05,
       "%ofUS": 0.19
     },
     {
       "state": "Virginia",
       "population": 8525660,
-      "%growth": 0.66,
+      "growth": 0.66,
       "%ofUS": 2.60
     },
     {
       "state": "Washington",
       "population": 7530552,
-      "%growth": 1.69,
+      "growth": 1.69,
       "%ofUS": 2.30
     },
     {
       "state": "West Virginia",
       "population": 1803077,
-      "%growth": -0.70,
+      "growth": -0.70,
       "%ofUS": 0.55
     },
     {
       "state": "Wisconsin",
       "population": 5818049,
-      "%growth": 0.39,
+      "growth": 0.39,
       "%ofUS": 1.77
     },
     {
       "state": "Wyoming",
       "population": 573720,
-      "%growth": -0.97,
+      "growth": -0.97,
       "%ofUS": 0.17
     }
   ]
