@@ -41,6 +41,13 @@ function sort(){
   }
 
 function display(){
+  stroke(255);
+  line(0, 35, 1000, 35);
+  line(200, 0, 200, 925);
+  line(0, 925, 1000, 925);
+  line(370, 0, 370, 925);
+  line(700, 0, 700, 925);
+  noStroke();
   fill(255);
   textSize(20);
   text("State", 35, 30);
@@ -52,12 +59,14 @@ function display(){
     fill(255);
     text(data.usPopulationData[i].state, 35, 75+(17*(i-1)));
     text(data.usPopulationData[i].population, 265, 75+(17*(i-1)));
-    fill(255, 0, 0);
+    fill(0, 255, 0);
+    rect(750, 60+(17*(i-1)), data.usPopulationData[i].USPercent*20, 15);
     if (data.usPopulationData[i].growth < 0){
-
+      fill(255, 0, 0);
+      rect((475+data.usPopulationData[i].growth*(100)), 60+(17*(i-1)), data.usPopulationData[i].growth*(100), 15);
     }
     else {
-      fill(0, 255, 0)
+      fill(0, 255, 0);
       rect(475, 60+(17*(i-1)), data.usPopulationData[i].growth*(100), 15)
     }
   }
