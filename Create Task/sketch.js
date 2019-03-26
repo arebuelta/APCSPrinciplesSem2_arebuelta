@@ -6,6 +6,9 @@
 
 var data;
 var totalPop = 0;
+var reverseSorted = [];
+var sortType; // variable that determine what to sort
+var overColumn = [];
 
 function preload(){
   data = loadJSON("population.json");
@@ -20,11 +23,89 @@ function setup(){
 
 function draw(){
   display();
+  mouseCheck();
+}
+
+function mouseCheck(){
+  if (mouseX > 0 && mouseX < 200 && mouseY > 0 && mouseY < 925){
+    overColumn[0] = true;
+  }
+  else{
+    overColumn[0] = false;
+  }
+  if (mouseX > 200 && mouseX < 370 && mouseY > 0 && mouseY < 925){
+    overColumn[1] = true;
+  }
+  else{
+    overColumn[1] = false;
+  }
+  if (mouseX > 370 && mouseX < 700 && mouseY > 0 && mouseY < 925){
+    overColumn[2] = true;
+  }
+  else{
+    overColumn[2] = false;
+  }
+  if (mouseX > 700 && mouseX < 100 && mouseY > 0 && mouseY < 925){
+    overColumn[3] = true;
+  }
+  else{
+    overColumn[3] = false;
+  }
 }
 
 function sort(){
   // for loop that sorts values in array
-  for (var i = 0; i < array.length-1; i++){
+  for (var i = 0; i < data.usPopulationData.length-1; i++){
+    var small = i; // variable holding i value
+    // for loop that compares the values in the array
+    for (var j = i+1; j < data.usPopulationData.length; j++){
+      // checks how to sort array based on "sortType"
+      if (sortType === "State"){
+      // if the value in the array is smaller than the previous value, small is assigned j
+      if (data.usPopulationData[j].state < data.usPopulationData[small].state){
+        small = j;
+      }
+      reverseSorted1 = false;
+    }
+    else if (sortType === "Population"){
+      // if the value in the array is smaller than the previous value, small is assigned j
+      if (data.usPopulationData[j].population < data.crime[small].population){
+        small = j
+      }
+      reverseSorted2 = false;
+      }
+    else if (sortType === "Growth"){
+      // if the value in the array is smaller than the previous value, small is assigned j
+      if (data.usPopulationData[j].growth < data.usPopulationData[small].growth){
+        small = j
+      }
+      reverseSorted3 = false;
+      }
+    }
+    else if (sortType === "PercentPop"){
+      // if the value in the array is smaller than the previous value, small is assigned j
+      if (data.usPopulationData[j].USPercent < data.usPopulationData[small].USPercent){
+        small = j
+      }
+      reverseSorted3 = false;
+      }
+    }
+    var temp = data.usPopulationData[i]; // temp variable holding array[i]
+    data.usPopulationData[i] = data.usPopulationData[small]; // array[i] is assigned array[small]
+    data.usPopulationData[small] = temp; // array[small] is assigned temp
+  }
+}
+  // checks if the array is sorted and if it is not it starts the sort function again
+  for (var i = 0; i < data.usPopulationData.length-1; i++){
+	  if (array[i] > array[i+1]){
+		  sort(array); // calls sort function
+	  }
+  }
+}
+
+function reverseSort(){
+  // for loop that sorts values in array
+  for (var i = 0; i < data.usPopulationData.length-1; i++){
 	// swaps array value if the first value is greater than the next value
     if (array[i] > array[i+1]){
 		var temp = array[i]; // temp variable holding array[i]
@@ -33,12 +114,12 @@ function sort(){
 	}
   }
   // checks if the array is sorted and if it is not it starts the sort function again
-  for (var i = 0; i < array-length-1; i++){
+  for (var i = 0; i < data.usPopulationData.length-1; i++){
 	  if (array[i] > array[i+1]){
 		  sort(array); // calls sort function
 	  }
   }
-  }
+}
 
 function display(){
   stroke(255);
@@ -70,10 +151,84 @@ function display(){
       rect(475, 60+(17*(i-1)), data.usPopulationData[i].growth*(100), 15)
     }
   }
+  fill(0, 255, 0);
+  rect(0, 930, 25, 25);
+  noStroke();
+  fill(255);
+  text("= Positive Percentage", 30, 950);
+  fill(255, 0, 0);
+  rect(0, 960, 25, 25);
+  fill(255);
+  text("= Negative Percentage", 30, 975);
 }
 
 function sum(){
   for (var i = 0; i < data.usPopulationData.length; i++){
     totalPop = totalPop + data.usPopulationData[i].population;
+  }
+}
+
+function mousePressed(){
+  // if statements that runs if the mouse is within the range of pixels as determined by the overWord variables
+  if(overColumn[0] === true) {
+    // makes the other reverseSorted variables as false due to only one array being sorted in reverse
+    reverseSorted[1] = false;
+    reverseSorted[2] = false;
+    reverseSorted[3] = false;
+    if (reverseSorted[0] === false){
+      sortType = "State";
+      reverseSort();
+    }
+    else if (reverseSorted[0] === true){
+      sortType = "State";
+      selectSort();
+    }
+  }
+  else if (overColumn[1] === true){
+    // makes the other reverseSorted variables as false due to only one array being sorted in reverse
+    reverseSorted[0] = false;
+    reverseSorted[2] = false;
+    reverseSorted[3] = false;
+    // sorts the array backwards if it isn't
+    if (reverseSorted[1] === false){
+      sortType = "Population";
+      reverseSort();
+    }
+    // sorts the array in order if it isn't
+    else if (reverseSorted[1] === true){
+      sortType = "Population";
+      sort();
+    }
+  }
+  else if (overColumn[2] === true){
+    // makes the other reverseSorted variables as false due to only one array being sorted in reverse
+    reverseSorted[0] = false;
+    reverseSorted[1] = false;
+    reverseSorted[3] = false;
+    // sorts the array backwards if it isn't
+    if (reverseSorted[2] === false){
+      sortType = "Growth";
+      reverseSort();
+    }
+    // sorts the array in order if it isn't
+    else if (reverseSorted[2] === true){
+      sortType = "Growth";
+      sort();
+    }
+  }
+  else if (overColumn[3] === true){
+    reverseSorted[0] = false;
+    reverseSorted[1] = false;
+    reverseSorted[2] = false;
+    // sorts the array backwards if it isn't
+    if (reverseSorted[3] === false){
+      sortType = "PercentPop";
+      reverseSort();
+    }
+    // sorts the array in order if it isn't
+    else if (reverseSorted[3] === true){
+      sortType = "PercentPop";
+      sort();
+    }
   }
 }
