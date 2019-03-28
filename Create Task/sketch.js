@@ -19,9 +19,11 @@ function setup(){
   cnv.position((windowWidth-width)/2, 30);
   background(0);
   sum();
+  assign(); // assigns the reverseSorted array as false
 }
 
 function draw(){
+  background(0);
   display();
   mouseCheck();
 }
@@ -45,7 +47,7 @@ function mouseCheck(){
   else{
     overColumn[2] = false;
   }
-  if (mouseX > 700 && mouseX < 100 && mouseY > 0 && mouseY < 925){
+  if (mouseX > 700 && mouseX < 1000 && mouseY > 0 && mouseY < 925){
     overColumn[3] = true;
   }
   else{
@@ -53,7 +55,7 @@ function mouseCheck(){
   }
 }
 
-function sort(){
+function Sort(){
   // for loop that sorts values in array
   for (var i = 0; i < data.usPopulationData.length-1; i++){
     var small = i; // variable holding i value
@@ -65,29 +67,28 @@ function sort(){
       if (data.usPopulationData[j].state < data.usPopulationData[small].state){
         small = j;
       }
-      reverseSorted1 = false;
+      reverseSorted[0] = false;
     }
     else if (sortType === "Population"){
       // if the value in the array is smaller than the previous value, small is assigned j
-      if (data.usPopulationData[j].population < data.crime[small].population){
+      if (data.usPopulationData[j].population < data.usPopulationData[small].population){
         small = j
       }
-      reverseSorted2 = false;
+      reverseSorted[1] = false;
       }
     else if (sortType === "Growth"){
       // if the value in the array is smaller than the previous value, small is assigned j
       if (data.usPopulationData[j].growth < data.usPopulationData[small].growth){
         small = j
       }
-      reverseSorted3 = false;
+      reverseSorted[2] = false;
       }
-    }
     else if (sortType === "PercentPop"){
       // if the value in the array is smaller than the previous value, small is assigned j
       if (data.usPopulationData[j].USPercent < data.usPopulationData[small].USPercent){
         small = j
       }
-      reverseSorted3 = false;
+      reverseSorted[3] = false;
       }
     }
     var temp = data.usPopulationData[i]; // temp variable holding array[i]
@@ -95,29 +96,46 @@ function sort(){
     data.usPopulationData[small] = temp; // array[small] is assigned temp
   }
 }
-  // checks if the array is sorted and if it is not it starts the sort function again
-  for (var i = 0; i < data.usPopulationData.length-1; i++){
-	  if (array[i] > array[i+1]){
-		  sort(array); // calls sort function
-	  }
-  }
-}
 
 function reverseSort(){
   // for loop that sorts values in array
   for (var i = 0; i < data.usPopulationData.length-1; i++){
-	// swaps array value if the first value is greater than the next value
-    if (array[i] > array[i+1]){
-		var temp = array[i]; // temp variable holding array[i]
-		array[i] = array[i+1];
-		array[i+1] = temp;
-	}
-  }
-  // checks if the array is sorted and if it is not it starts the sort function again
-  for (var i = 0; i < data.usPopulationData.length-1; i++){
-	  if (array[i] > array[i+1]){
-		  sort(array); // calls sort function
-	  }
+    var small = i; // variable holding i value
+    // for loop that compares the values in the array
+    for (var j = i+1; j < data.usPopulationData.length; j++){
+      // checks how to sort array based on "sortType"
+      if (sortType === "State"){
+      // if the value in the array is smaller than the previous value, small is assigned j
+      if (data.usPopulationData[j].state > data.usPopulationData[small].state){
+        small = j;
+      }
+      reverseSorted[0] = true;
+    }
+    else if (sortType === "Population"){
+      // if the value in the array is smaller than the previous value, small is assigned j
+      if (data.usPopulationData[j].population > data.usPopulationData[small].population){
+        small = j
+      }
+      reverseSorted[1] = true;
+      }
+    else if (sortType === "Growth"){
+      // if the value in the array is smaller than the previous value, small is assigned j
+      if (data.usPopulationData[j].growth > data.usPopulationData[small].growth){
+        small = j
+      }
+      reverseSorted[2] = true;
+      }
+    else if (sortType === "PercentPop"){
+      // if the value in the array is smaller than the previous value, small is assigned j
+      if (data.usPopulationData[j].USPercent > data.usPopulationData[small].USPercent){
+        small = j
+      }
+      reverseSorted[3] = true;
+      }
+    }
+    var temp = data.usPopulationData[i]; // temp variable holding array[i]
+    data.usPopulationData[i] = data.usPopulationData[small]; // array[i] is assigned array[small]
+    data.usPopulationData[small] = temp; // array[small] is assigned temp
   }
 }
 
@@ -160,6 +178,14 @@ function display(){
   rect(0, 960, 25, 25);
   fill(255);
   text("= Negative Percentage", 30, 975);
+  textSize(20);
+  text("- Click on a column to sort the data in reverse or in order", 300, 975);
+}
+
+function assign(){
+  for (var i = 0; i < 4; i++){
+    reverseSorted[i] = false;
+  }
 }
 
 function sum(){
@@ -181,7 +207,7 @@ function mousePressed(){
     }
     else if (reverseSorted[0] === true){
       sortType = "State";
-      selectSort();
+      Sort();
     }
   }
   else if (overColumn[1] === true){
@@ -197,7 +223,7 @@ function mousePressed(){
     // sorts the array in order if it isn't
     else if (reverseSorted[1] === true){
       sortType = "Population";
-      sort();
+      Sort();
     }
   }
   else if (overColumn[2] === true){
@@ -213,7 +239,7 @@ function mousePressed(){
     // sorts the array in order if it isn't
     else if (reverseSorted[2] === true){
       sortType = "Growth";
-      sort();
+      Sort();
     }
   }
   else if (overColumn[3] === true){
@@ -228,7 +254,7 @@ function mousePressed(){
     // sorts the array in order if it isn't
     else if (reverseSorted[3] === true){
       sortType = "PercentPop";
-      sort();
+      Sort();
     }
   }
 }
