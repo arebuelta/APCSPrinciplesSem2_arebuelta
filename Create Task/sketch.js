@@ -64,30 +64,30 @@ function Sort(){
       // checks how to sort array based on "sortType"
       if (sortType === "State"){
       // if the value in the array is smaller than the previous value, small is assigned j
-      if (data.usPopulationData[j].state < data.usPopulationData[small].state){
-        small = j;
+        if (data.usPopulationData[j].state < data.usPopulationData[small].state){
+          small = j;
       }
       reverseSorted[0] = false;
     }
-    else if (sortType === "Population"){
+      else if (sortType === "Population"){
       // if the value in the array is smaller than the previous value, small is assigned j
-      if (data.usPopulationData[j].population < data.usPopulationData[small].population){
-        small = j
-      }
+        if (data.usPopulationData[j].population < data.usPopulationData[small].population){
+          small = j
+        }
       reverseSorted[1] = false;
       }
-    else if (sortType === "Growth"){
+      else if (sortType === "Growth"){
       // if the value in the array is smaller than the previous value, small is assigned j
-      if (data.usPopulationData[j].growth < data.usPopulationData[small].growth){
-        small = j
-      }
+        if (data.usPopulationData[j].growth < data.usPopulationData[small].growth){
+          small = j
+        }
       reverseSorted[2] = false;
       }
-    else if (sortType === "PercentPop"){
+      else if (sortType === "PercentPop"){
       // if the value in the array is smaller than the previous value, small is assigned j
-      if (data.usPopulationData[j].USPercent < data.usPopulationData[small].USPercent){
-        small = j
-      }
+        if (data.usPopulationData[j].USPercent < data.usPopulationData[small].USPercent){
+          small = j
+        }
       reverseSorted[3] = false;
       }
     }
@@ -146,6 +146,11 @@ function display(){
   line(0, 925, 1000, 925);
   line(370, 0, 370, 925);
   line(700, 0, 700, 925);
+  line(690, 920, 690, 930);
+  line(475, 920, 475, 930);
+  line(375, 920, 375, 930);
+  line(750, 920, 750, 930);
+  line(990, 920, 990, 930);
   noStroke();
   fill(255);
   textSize(20);
@@ -154,6 +159,11 @@ function display(){
   text("% of Population Growth", 450, 30);
   text("% of total US Population", 725, 30);
   textSize(15);
+  text("-0.97%", 355, 945);
+  text("0%", 472, 945);
+  text("2.15%", 670, 945);
+  text("0%", 747, 945);
+  text("12.13%", 950, 945);
   for (var i = 0; i < data.usPopulationData.length; i++){
     fill(255);
     text(data.usPopulationData[i].state, 35, 75+(17*(i-1)));
@@ -166,7 +176,7 @@ function display(){
     }
     else {
       fill(0, 255, 0);
-      rect(475, 60+(17*(i-1)), data.usPopulationData[i].growth*(100), 15)
+      rect(475, 60+(17*(i-1)), data.usPopulationData[i].growth*(100), 15);
     }
   }
   fill(0, 255, 0);
