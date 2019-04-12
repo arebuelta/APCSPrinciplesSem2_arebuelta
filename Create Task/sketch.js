@@ -1,9 +1,3 @@
-/*
-** Anthony Rebuelta
-** Create Task: Population Data
-** 19 March 2019
-*/
-
 var data;
 var totalPop = 0;
 var reverseSorted = [];
